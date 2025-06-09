@@ -6,7 +6,8 @@ import { useUserContext } from '../context/UserContext';
 export default function Toolbar() {
   const { user, loading } = useUserContext();
   const location = useLocation();
-
+  const { mockMode, setMockMode } = useUserContext();
+  const toggleMockMode = () => setMockMode((prev) => !prev);
   if (loading) return null;
 
   const baseClass = "px-3 py-1 rounded text-sm";
@@ -64,6 +65,12 @@ export default function Toolbar() {
           👥 使用者管理
         </Link>
       )}
+      <button
+        onClick={toggleMockMode}
+        className="px-3 py-1 rounded bg-yellow-500 text-black text-sm"
+      >
+        {mockMode ? '🟢 Mock 模式' : '⚪ 關閉 Mock'}
+      </button>
     </div>
   );
 }

@@ -6,7 +6,12 @@ export default function CircleAvatar({ member }) {
   // 使用 useDraggable 使 CircleAvatar 可被拖曳
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     //id: member.userId, // 使用 member 的 userId（或任何唯一識別符）作為拖曳的 id
-    id: `crewmate-${member.id}`
+    id: `crewmate-${member.id}`,
+    // data: {
+    //   originalID: member.id//確保在拖曳時可以識別原始的 member.id
+    // }
+    data: { originalID: member.id } // 可以傳遞其他數據
+    
   });
   //console.log('Draggable id:', `crewmate-${member.id}`);
   // const { attributes, listeners, setNodeRef } = useDraggable({ id: `boat-${index}` });

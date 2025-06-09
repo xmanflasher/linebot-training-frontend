@@ -70,7 +70,7 @@ export default function ProfileCard({ profile, anchorRect, onClose }) {
         )}
         <div>
           <div className="font-semibold truncate">{profile.userId}（{profile.name}）</div>
-          <div className="text-gray-600">{profile.gender}・{profile.position}</div>
+          <div className="text-gray-600">{profile.gender}・{profile.character}</div>
         </div>
       </div>
     </div>
