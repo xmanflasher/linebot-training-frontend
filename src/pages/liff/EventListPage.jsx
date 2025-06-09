@@ -1,5 +1,4 @@
 // src/pages/liff/EventListPage.jsx
-// src/pages/liff/EventListPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
