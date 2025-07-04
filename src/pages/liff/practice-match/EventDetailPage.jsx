@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../lib/firebase';
+import { db } from '../../../lib/firebase';
 
-import EventInfoCard from '../../components/event/EventInfoCard';
-import AttendanceForm from '../../components/event/AttendanceForm';
-import AdminActionBar from '../../components/event/AdminActionBar';
+import EventInfoCard from '../../../components/event/EventInfoCard';
+import AttendanceForm from '../../../components/event/AttendanceForm';
+import AdminActionBar from '../../../components/event/AdminActionBar';
 
-import { mockEventList } from '../../mock/mockEventData';
-import { mockReplies } from '../../mock/mockReplyData';
+import { mockEventList } from '../../../mock/mockEventData';
+import { mockReplies } from '../../../mock/mockReplyData';
 
 const USE_MOCK = true; // ✅ 切換 mock 與 Firebase 模式
 const CURRENT_USER_ID = 'user1'; // 模擬目前登入的使用者

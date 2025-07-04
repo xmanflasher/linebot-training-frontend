@@ -1,12 +1,12 @@
 // src/pages/EventCreatePage.jsx
 import React from 'react';
-import { db } from '../../lib/firebase';
+import { db } from '../../../lib/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import PracticeMatchForm from '../../components/PracticeMatchForm';
-import { useUserContext } from '../../context/UserContext'; // 引入 context
+import PracticeMatchForm from '../../../components/PracticeMatchForm';
+import { useUserContext } from '../../../context/UserContext'; // 引入 context
 
-export default function EventCreatePage() {
+export default function EventPage() {
   const navigate = useNavigate();
   const { mockMode } = useUserContext(); // 取用 mockMode
 

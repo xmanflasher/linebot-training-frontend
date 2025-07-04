@@ -1,9 +1,9 @@
-// src/pages/liff/EventListPage.jsx
+// src/pages/liff/EventTablePage.jsx(PaginationTable)
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
-import PaginationTable from '../../components/PaginationTable';
-import { fetchEvents } from '../../services/fetchEvents';
+import PaginationTable from '../../../components/PaginationTable';
+import { fetchEvents } from '../../../services/fetchEvents';
 
 export default function EventListPage() {
   const [events, setEvents] = useState([]);
@@ -93,38 +93,3 @@ export default function EventListPage() {
     </div>
   );
 }
-
-
-
-// src/pages/liff/EventListPage.jsx
-// import React, { useEffect, useState } from 'react';
-// import PaginationTable from '../../components/PaginationTable';
-// import { fetchEvents } from '../../services/fetchEvents';
-
-// export default function EventListPage() {
-//   const [events, setEvents] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const loadEvents = async () => {
-//       const data = await fetchEvents();
-//       setEvents(data);
-//       setLoading(false);
-//     };
-//     loadEvents();
-//   }, []);
-
-//   if (loading) return <div className="text-center mt-10">載入中...</div>;
-
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-2xl font-bold mb-4">事件列表</h1>
-//       <PaginationTable data={events} columns={[
-//         { header: '標題', accessor: 'title' },
-//         { header: '日期', accessor: row => new Date(row.date || row.start).toLocaleDateString() },
-//         { header: '地點', accessor: 'location' },
-//         { header: '類型', accessor: 'type' },
-//       ]} />
-//     </div>
-//   );
-// } 
