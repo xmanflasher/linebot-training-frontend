@@ -6,8 +6,12 @@ import { useUserContext } from '../context/UserContext';
 export default function Toolbar() {
   const { user, loading } = useUserContext();
   const location = useLocation();
-  const { mockMode, setMockMode } = useUserContext();
-  const toggleMockMode = () => setMockMode((prev) => !prev);
+  //const { mockMode, setMockMode } = useUserContext();
+  //const toggleMockMode = () => setMockMode((prev) => !prev);
+  console.log("Toolbar user:", user);
+  console.log("Toolbar loading:", loading);
+  //console.log("Toolbar mockMode:", mockMode);
+  //console.log("Toolbar setMockMode:", setMockMode);
   if (loading) return null;
 
   const baseClass = "px-3 py-1 rounded text-sm";
@@ -65,34 +69,12 @@ export default function Toolbar() {
           👥 使用者管理
         </Link>
       )}
-      <button
+      {/* <button
         onClick={toggleMockMode}
         className="px-3 py-1 rounded bg-yellow-500 text-black text-sm"
       >
         {mockMode ? '🟢 Mock 模式' : '⚪ 關閉 Mock'}
-      </button>
+      </button> */}
     </div>
   );
 }
-
-
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { useUserContext } from '../context/UserContext';
-
-// export default function Toolbar() {
-//   const { user, loading } = useUserContext();
-
-//   if (loading) return null;
-
-//   return (
-//     <div className="bg-gray-800 text-white px-4 py-2 flex gap-4">
-//       <Link to="/liff/calendar">📅 行事曆</Link>
-//       <Link to="/liff/event-list">📋 事件列表</Link>
-//       {user?.role === 'leader' && <Link to="/create-event">➕ 發起活動</Link>}
-//       {user?.role === 'admin' && <Link to="/manage-users">👥 使用者管理</Link>}
-//     </div>
-//   );
-// }

@@ -1,3 +1,4 @@
+// src/components/PaginationTable.jsx
 import React, { useState } from 'react';
 
 export default function PaginationTable({ data, columns, pageSize = 5 }) {
@@ -35,11 +36,10 @@ export default function PaginationTable({ data, columns, pageSize = 5 }) {
           <button
             key={i}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded-md border ${
-              currentPage === i + 1
+            className={`px-3 py-1 rounded-md border ${currentPage === i + 1
                 ? 'bg-green-600 text-white'
                 : 'bg-white text-green-700 border-green-300'
-            }`}
+              }`}
           >
             {i + 1}
           </button>
