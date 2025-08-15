@@ -15,6 +15,7 @@ import EntryPage from '../pages/liff/Entry';
 import SelectTeamPage from '../pages/liff/team/SelectTeamPage';
 import CreateTeamPage from '../pages/liff/team/CreateTeamPage';
 import JoinTeamPage from '../pages/liff/team/JoinTeamPage';
+import ExploreTeamPage from '../pages/liff/team/ExploreTeamPage';
 function AppRoutes() {
   return (
     <Routes>
@@ -37,6 +38,9 @@ function AppRoutes() {
       <Route path="/team/select" element={<SelectTeamPage />} />
       <Route path="/team/create" element={<CreateTeamPage />} />
       <Route path="/team/join" element={<JoinTeamPage />} />
+      <Route path="/team/explore" element={<ExploreTeamPage />} />
+      {/* Add more routes as needed */}
+      {/* Redirect to entry page if no match */}
     </Routes>
   );
 }

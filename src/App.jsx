@@ -1,6 +1,7 @@
 // src/App.jsx
 import { BrowserRouter as Router } from 'react-router-dom';
-import Toolbar from './components/Toolbar';
+//import Toolbar from './components/Toolbar';
+import Toolbar, { TopBar } from './components/Toolbar';
 import { UserProvider } from './context/UserContext';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
@@ -16,6 +17,7 @@ function App() {
     <AuthProvider>
       <UserProvider>
         <Router>
+          <TopBar />
           <div className="pb-16">
             <AppRoutes />
           </div>
@@ -30,6 +32,7 @@ function MockApp() {
     <AuthProvider>
       <UserProvider>
         <Router>
+          <TopBar />
           <div className="pb-16">
             <AppRoutes />
           </div>
