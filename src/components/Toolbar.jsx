@@ -3,10 +3,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, matchPath, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import ProfileCard from './profile/ProfileCard';
+import { useTeam } from "../hooks/useTeam";
 
 export function TopBar() {
   // const { user, currentTeam } = useUserContext();
-  const { profile: user, currentTeam } = useUserContext();
+  const { profile: user } = useUserContext();
+  const { currentTeam } = useTeam();
   const navigate = useNavigate();
   const [showCard, setShowCard] = useState(false);
   const [anchorRect, setAnchorRect] = useState(null);
@@ -67,7 +69,7 @@ export function TopBar() {
         onClick={() => navigate('/team/select')}
         className={`${baseClass} cursor-pointer ${inactiveClass}`}
       >
-        {currentTeam?.name || '選擇團隊'}
+        {currentTeam?.name || '團隊管理'}
       </div>
 
       {showCard && user && (

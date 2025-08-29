@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 //import Toolbar from './components/Toolbar';
 import Toolbar, { TopBar } from './components/Toolbar';
 import { UserProvider } from './context/UserContext';
+import { TeamProvider } from './context/TeamContext';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 import { AuthProvider } from './context/AuthContext';
@@ -14,32 +15,36 @@ const isMock = process.env.REACT_APP_USE_MOCK === 'true';//config落在source外
 //const isMock = process.env.REACT_APP_MOCK === 'false';
 function App() {
   return (
-    <AuthProvider>
-      <UserProvider>
-        <Router>
-          <TopBar />
-          <div className="pb-16">
-            <AppRoutes />
-          </div>
-          <Toolbar />
-        </Router>
-      </UserProvider>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <UserProvider>
+          <TeamProvider>
+            <TopBar />
+            <div className="pb-16">
+              <AppRoutes />
+            </div>
+            <Toolbar />
+          </TeamProvider>
+        </UserProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 function MockApp() {
   return (
-    <AuthProvider>
-      <UserProvider>
-        <Router>
-          <TopBar />
-          <div className="pb-16">
-            <AppRoutes />
-          </div>
-          <Toolbar />
-        </Router>
-      </UserProvider>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <UserProvider>
+          <TeamProvider>
+            <TopBar />
+            <div className="pb-16">
+              <AppRoutes />
+            </div>
+            <Toolbar />
+          </TeamProvider>
+        </UserProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 // function MockApp() {
