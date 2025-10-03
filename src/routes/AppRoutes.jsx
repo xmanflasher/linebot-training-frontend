@@ -1,5 +1,6 @@
 // src/routes/AppRoutes.jsx
 import { Routes, Route, Navigate } from 'react-router-dom';
+import LiffLayout from "../layouts/LiffLayout";
 //----------prod pages-----------
 import ProfileForm from '../pages/liff/ProfileForm';
 import EventDetailPage from '../pages/liff/practice-match/EventDetailPage';
@@ -19,28 +20,37 @@ import ExploreTeamPage from '../pages/liff/team/ExploreTeamPage';
 function AppRoutes() {
   return (
     <Routes>
-      {/* ----------prod pages----------- */}
-      {/* <Route path="/" element={<Navigate to="/liff/calendar" replace />} /> */}
+      {/* 預設導向入口 */}
       <Route path="/" element={<Navigate to="/entry" replace />} />
-      <Route path="/liff/calendar" element={<CalendarPage />} />
-      <Route path="/event/:id" element={<EventDetailPage />} />
-      <Route path="/liff/event-list" element={<EventTablePage />} />
-      <Route path="/liff/event" element={<EventCreatePage />} />
-      <Route path="/liff/practice" element={<PracticeForm />} />
-      <Route path="/liff/profile" element={<ProfileForm />} />
-      <Route path="/liff/role" element={<RoleSelectionPage />} />
-      {/* ----------test pages----------- */}
-      {/* <Route path="/liff/stats" element={<StatsPage />} />
-      <Route path="/liff/admin" element={<AdminPage />} /> */}
-      <Route path="/liff/test" element={<TestPage />} />
-      <Route path="*" element={<div>404 Not Found</div>} /> {/* fallback route */}
+
+      {/* 入口頁（不套 Layout，可能有 loading 動畫） */}
       <Route path="/entry" element={<EntryPage />} />
-      <Route path="/team/select" element={<SelectTeamPage />} />
-      <Route path="/team/create" element={<CreateTeamPage />} />
-      <Route path="/team/join" element={<JoinTeamPage />} />
-      <Route path="/team/explore" element={<ExploreTeamPage />} />
-      {/* Add more routes as needed */}
-      {/* Redirect to entry page if no match */}
+
+      {/* ----------- LIFF 主功能（統一套 LiffLayout） ----------- */}
+      <Route element={<LiffLayout />}>
+        {/* 行事曆 & 活動 */}
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/event/:id" element={<EventDetailPage />} />
+        <Route path="/event/create" element={<EventCreatePage />} />
+        <Route path="/event/list" element={<EventTablePage />} />
+        <Route path="/practice" element={<PracticeForm />} />
+
+        {/* 使用者 & 團隊 */}
+        <Route path="/profile" element={<ProfileForm />} />
+        <Route path="/role" element={<RoleSelectionPage />} />
+        <Route path="/team/select" element={<SelectTeamPage />} />
+        <Route path="/team/create" element={<CreateTeamPage />} />
+        <Route path="/team/join" element={<JoinTeamPage />} />
+        <Route path="/team/explore" element={<ExploreTeamPage />} />
+
+        {/* 測試 / 開發用 */}
+        <Route path="/test" element={<TestPage />} />
+        {/* <Route path="/stats" element={<StatsPage />} /> */}
+        {/* <Route path="/admin" element={<AdminPage />} /> */}
+      </Route>
+
+      {/* fallback 404 */}
+      <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>
   );
 }

@@ -11,18 +11,32 @@ export const mockTeamData = [
         ],
         isPublic: true,
         isTemp: false,
-        createdAt: Timestamp,
+        //createdAt: Timestamp,
+        createdAt: new Date("2025-01-15T10:30:00Z"),
         createdBy: 'UID001'
     },
     {
-        id: 'TEAM001',
+        id: 'TEAM002',
         name: 'CT50+',
         members: [
             "UID007", "UID009", "UID013", "UID014", "UID015", "UID016", "UID017", "UID018"
         ],
         isPublic: true,
         isTemp: false,
-        createdAt: Timestamp,
-        createdBy: 'UID002'
+        //createdAt: Timestamp,
+        createdAt: new Date("2025-01-15T10:30:00Z"),
+        createdBy: 'UID007'
+    },
+    {
+        id: 'TEAM003',
+        name: 'TestTeam',
+        members: [
+            "UID007", "UID009"
+        ],
+        isPublic: true,
+        isTemp: false,
+        //createdAt: Timestamp,
+        createdAt: new Date("2025-01-15T10:30:00Z"),
+        createdBy: 'UID007'
     },
 ];

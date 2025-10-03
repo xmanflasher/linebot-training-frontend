@@ -3,7 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 //import { getUserProfileAndRole } from '../services/userService'; // 自行實作
 import { useAuth } from './AuthContext';
 import { mockProfiles } from '../mock/mockProfiles';
-import { API_URL } from '../config.ts'; // 確保這個路徑正確
+import { API_URL, isMock } from '../config'; // 確保這個路徑正確
 
 const UserContext = createContext();
 
@@ -11,7 +11,7 @@ export function UserProvider({ children }) {
   const { authUser, authLoading } = useAuth(); // ✅ 改為明確命名
   const [profile, setProfile] = useState(null); // ✅ 使用更清楚的 profile 命名
   const [profileLoading, setProfileLoading] = useState(true);
-  const isMock = process.env.REACT_APP_USE_MOCK === 'true';
+  //const isMock = process.env.REACT_APP_USE_MOCK === 'true';
 
   console.log('[UserProvider] isMock:', isMock);
   console.log('[UserProvider] authLoading:', authLoading);

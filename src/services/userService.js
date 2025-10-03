@@ -1,4 +1,4 @@
-// src/services/userService.js
+// src/services/userService.js  unused!
 import { isMock, API_URL } from '../config.ts'; // 注意路徑
 import { mockProfiles } from '../mock/mockProfiles.js';
 
@@ -14,33 +14,21 @@ export async function getUserProfileAndRole() {
       teamIds: mockUser.teamIds || [],
     };
   }
-  // // 🟢 正常情況：從 LINE LIFF 取得使用者資料
-  // const liff = window.liff;
-  // if (!liff.isLoggedIn()) await liff.login();
+  // 🟢 正常情況：從 LINE LIFF 取得使用者資料
+  const liff = window.liff;
+  if (!liff.isLoggedIn()) await liff.login();
 
-  // const profile = await liff.getProfile();
-  // const context = liff.getContext();
-  // const groupId = context.groupId || 'default';
+  const profile = await liff.getProfile();
+  const context = liff.getContext();
+  const groupId = context.groupId || 'default';
 
-  // const res = await fetch(`${API_URL}/api/users/${profile.userId}?groupId=${groupId}`);
-  // const userData = await res.json();
+  const res = await fetch(`${API_URL}/api/users/${profile.userId}?groupId=${groupId}`);
+  const userData = await res.json();
 
-  // return {
-  //   name: profile.displayName,
-  //   userId: profile.userId,
-  //   role: userData.role || 'member',
-  //   groupId,
-  // };
+  return {
+    name: profile.displayName,
+    userId: profile.userId,
+    role: userData.role || 'member',
+    groupId,
+  };
 }
-
-// // src/services/userService.js
-// export async function getUserProfileAndRole(userId) {
-//   if (isMock) {
-//     const user = mockProfiles.find(p => p.id === userId);
-//     return user;
-//   }
-
-//   const res = await fetch(`${API_URL}/api/users/${userId}`);
-//   const data = await res.json();
-//   return data;
-// }

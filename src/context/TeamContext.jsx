@@ -1,7 +1,8 @@
 // src/contexts/TeamContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { API_URL, isMock } from '../config'; // 確保這個路徑正確
+import { mockTeamData } from '../mock/mockTeamData';
 const TeamContext = createContext();
 
 export function TeamProvider({ children }) {

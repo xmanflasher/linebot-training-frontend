@@ -9,5 +9,6 @@
 //   readonly env: ImportMetaEnv;
 // }
 
-export const isMock = process.env.REACT_APP_USE_MOCK  === 'true';
+//export const isMock = process.env.REACT_APP_USE_MOCK === 'true';
+export const isMock = process.env.REACT_APP_USE_MOCK;
 export const API_URL = process.env.REACT_APP_API_URL;

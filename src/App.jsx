@@ -8,8 +8,9 @@ import AppRoutes from './routes/AppRoutes';
 import './App.css';
 import { AuthProvider } from './context/AuthContext';
 import ReactDOM from 'react-dom/client';
+import { isMock } from './config';
 
-const isMock = process.env.REACT_APP_USE_MOCK === 'true';//config落在source外，無法使用
+//const isMock = process.env.REACT_APP_USE_MOCK === 'true';//config落在source外，無法使用
 //console.log('App isMock:', isMock);
 //console.log('App process.env.REACT_APP_MOCK:', process.env.REACT_APP_USE_MOCK);
 //const isMock = process.env.REACT_APP_MOCK === 'false';
